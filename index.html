@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irene Teo | Business Analytics Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            animation: underlineGrow 0.8s ease-out 0.5s both;
+        }
+        
+        @keyframes underlineGrow {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            animation: slideInLeft 0.8s ease-out 0.2s both;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: slideInLeft 0.8s ease-out 0.4s both;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: slideInLeft 0.8s ease-out 0.6s both;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: #eff6ff;
+            transform: translateY(-2px);
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-placeholder {
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 6rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .profile-photo {
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            background: white;
+            padding: 4rem 5%;
+        }
+        
+        .skills-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-card {
+            padding: 1.8rem;
+            background: var(--light);
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--primary);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
+        .skill-card:nth-child(7) { animation-delay: 0.7s; }
+        .skill-card:nth-child(8) { animation-delay: 0.8s; }
+        
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .skill-card:hover .skill-icon {
+            animation: spin 0.6s ease-in-out;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .skill-card h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-card p {
+            font-size: 0.95rem;
+            color: var(--secondary);
+            line-height: 1.5;
+        }
+        
+        /* Projects Section */
+        .projects-section {
+            padding: 5rem 5%;
+            background: #fafafa;
+        }
+        
+        .section-header {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+        
+        .projects-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .project-content h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+        
+        .project-content p {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .project-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+            cursor: pointer;
+        }
+        
+        .project-link:hover {
+            gap: 0.8rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .modal-body h3 {
+            color: var(--dark);
+            margin: 1.5rem 0 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .modal-body h3:first-child {
+            margin-top: 0;
+        }
+        
+        .modal-body ul {
+            margin-left: 1.5rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+        
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .impact-item {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .impact-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .close {
+            color: white;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .close:hover {
+            opacity: 1;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+        
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-header .tagline {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-style: italic;
+        }
+        
+        .about-header .tagline {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-style: italic;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .typing-effect-container {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .typing-effect {
+            overflow: hidden;
+            border-right: 3px solid var(--primary);
+            white-space: nowrap;
+            animation: typing 4s steps(80) 1s forwards, blink 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; border-right: none; }
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
+        .emphasis-text {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .highlight-gradient {
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .journey-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 2rem;
+        }
+        
+        .journey-text strong {
+            color: var(--dark);
+        }
+        
+        /* Achievement Grid Boxes */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .achievement-box {
+            position: relative;
+            height: 180px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        
+        .achievement-front,
+        .achievement-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            transition: transform 0.6s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .achievement-front {
+            background: white;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .achievement-back {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        .achievement-box:hover .achievement-front {
+            transform: rotateY(180deg);
+        }
+        
+        .achievement-box:hover .achievement-back {
+            transform: rotateY(360deg);
+        }
+        
+        .achievement-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .achievement-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            text-align: center;
+        }
+        
+        .achievement-back p {
+            font-size: 1rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .highlight-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .highlight-card h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-card p {
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), #764ba2);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            margin-right: calc(50% + 30px);
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: calc(50% + 30px);
+            margin-right: auto;
+            text-align: left;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+            animation: pulse-dot 2s infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0%, 100% {
+                box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(37, 99, 235, 0.1);
+            }
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .achievement-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            animation: number-count 1s ease-out;
+        }
+        
+        @keyframes number-count {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .timeline-content h4 {
+            color: var(--dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+        
+        /* Skills Learned Cards */
+        .skills-learned {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 3rem;
+        }
+        
+        .skill-learned-card {
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .skill-learned-card.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .skill-learned-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+        
+        .skill-learned-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-learned-card p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0;
+            color: white;
+        }
+        
+        /* New Value Cards */
+        .value-card-new {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .value-card-new.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .value-card-new:nth-child(1) { animation-delay: 0.1s; }
+        .value-card-new:nth-child(2) { animation-delay: 0.2s; }
+        .value-card-new:nth-child(3) { animation-delay: 0.3s; }
+        .value-card-new:nth-child(4) { animation-delay: 0.4s; }
+        
+        .value-card-new:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card-new h4 {
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .value-card-new p {
+            color: var(--secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Animate on scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Remove old timeline and value card styles */
+        .timeline,
+        .timeline-item,
+        .timeline-dot,
+        .timeline-content,
+        .value-card {
+            display: none;
+        }
+        
+        /* Differentiator Slider */
+        .differentiators {
+            margin: 3rem 0;
+        }
+        
+        .differentiators h3 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+        }
+        
+        .slider-container {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .slide {
+            min-width: 100%;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+        }
+        
+        .slide-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: slideIconPop 0.6s ease-out;
+        }
+        
+        @keyframes slideIconPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .slide h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .slide p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: var(--primary);
+            width: 30px;
+            border-radius: 6px;
+        }
+        
+        .looking-for {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .looking-for h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .looking-for p {
+            color: #475569;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 5%;
+            background: var(--dark);
+            color: white;
+        }
+        
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-content p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-placeholder {
+                width: 250px;
+                height: 250px;
+                font-size: 4rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 50px;
+                margin-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .achievement-box {
+                height: 160px;
+            }
+            
+            .typing-effect {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+            
+            .differentiator-item {
+                min-height: auto;
+                padding: 1.5rem;
+            }
+            
+            .diff-icon-section {
+                position: static;
+                transform: none;
+                width: 100%;
+                height: auto;
+                margin-bottom: 1.5rem;
+            }
+            
+            .diff-content {
+                margin-left: 0;
+                padding-right: 0;
+                text-align: center;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .differentiator-item {
+                min-height: auto;
+                padding: 1.5rem;
+            }
+            
+            .diff-icon-section {
+                position: static;
+                transform: none;
+                width: 100%;
+                height: auto;
+                margin-bottom: 1.5rem;
+            }
+            
+            .diff-content {
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        section {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">IRENE TEO</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Turning Data into <span class="highlight">Measurable Impact</span></h1>
+                <p class="subtitle">Engineering-trained | Analytics-driven | Business-focused</p>
+                <p>Engineering-trained with 5 years of experience turning operational data into actionable insights across industrial gases, pharma, and edible oils. Proven in predictive analysis, statistical monitoring, and dashboard design, with a track record of delivering measurable operational and business impact.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a class="btn btn-secondary" onclick="openModal('resumeModal')">Get Resume</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- METHOD 1: Using a local file (save your photo as 'profile.jpg' in the same folder) -->
+                <img src="profile.jpg" alt="Irene Teo" class="profile-photo">
+                
+                <!-- METHOD 2: Using an online image URL (replace with your actual image URL) -->
+                <!-- <img src="https://your-image-url.com/photo.jpg" alt="Irene Teo" class="profile-photo"> -->
+                
+                <!-- METHOD 3: Keep the placeholder if you don't have a photo yet -->
+                <!-- <div class="profile-placeholder">👩‍💻</div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3>Business Analytics</h3>
+                <p>Market analysis, commercial insights, data storytelling</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🔮</div>
+                <h3>Predictive Modeling</h3>
+                <p>Performance risk anticipation, AVEVA Predictive Analytics</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📈</div>
+                <h3>Statistical Analysis</h3>
+                <p>Real-time data interpretation, PI Vision, Northwest Analytics</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💡</div>
+                <h3>Dashboard Design</h3>
+                <p>Actionable visualization, Power BI, PI Vision</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🛠️</div>
+                <h3>Analytics Tools</h3>
+                <p>Python, MySQL, VBA, Minitab, MATLAB</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚙️</div>
+                <h3>Engineering Tools</h3>
+                <p>AutoCAD, Aspen Plus, HYSYS, HTRI, SCADA, Navisworks</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📋</div>
+                <h3>Project Management</h3>
+                <p>EPC project, pharma capital project, business case proposal</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🏭</div>
+                <h3>Industry Expertise</h3>
+                <p>Industrial gases, pharmaceutical APIs (GMP), oleochemicals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="section-header">
+            <h2>Portfolio Highlights</h2>
+            <p>Engineering analytics meets business strategy</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">💰</div>
+                <div class="project-content">
+                    <span class="project-tag">Impact Project</span>
+                    <h3>S$250K Annual Cost Savings Initiative</h3>
+                    <p>Developed predictive models using AVEVA Predictive Analytics to optimize plant operations, delivering quantifiable annual savings across industrial gas operations.</p>
+                    <a class="project-link" onclick="openModal('modal1')">▶ View Case Study →</a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🔔</div>
+                <div class="project-content">
+                    <span class="project-tag">Process Optimization</span>
+                    <h3>86% Alarm Reduction</h3>
+                    <p>Analyzed noisy real-time data streams using Northwest Analytics to reduce process alarms, improving operator decision-making and gas plant stability.</p>
+                    <a class="project-link" onclick="openModal('modal2')">▶ View Case Study →</a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🛡️</div>
+                <div class="project-content">
+                    <span class="project-tag">Risk Mitigation</span>
+                    <h3>S$150K Operational Loss Avoidance</h3>
+                    <p>Prevented S$150K in potential losses by identifying and resolving critical operational risks during plant startup.</p>
+                    <a class="project-link" onclick="openModal('modal3')">▶ View Case Study →</a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">📊</div>
+                <div class="project-content">
+                    <span class="project-tag">Business Intelligence</span>
+                    <h3>Real-Time Performance Dashboards</h3>
+                    <p>Designed and maintained real-time dashboards that translated complex plant data into actionable insights.</p>
+                    <a class="project-link" onclick="openModal('modal4')">▶ View Case Study →</a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">🎓</div>
+                <div class="project-content">
+                    <span class="project-tag">Business Analytics</span>
+                    <h3>BCG Digital Academy Projects</h3>
+                    <p>Market analysis, data storytelling, and structured problem-solving exercises developing commercial strategy skills for business analyst roles.</p>
+                    <a class="project-link" onclick="openModal('modal5')">▶ View Details →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+                <h2>S$250K Annual Cost Savings Initiative</h2>
+            </div>
+            <div class="modal-body">
+                <h3>Objective</h3>
+                <p>Reduce unplanned downtime and maintenance costs through early failure detection.</p>
+                
+                <h3>Approach</h3>
+                <ul>
+                    <li>Built 20+ predictive models using AVEVA Predictive Analytics</li>
+                    <li>Analyzed historical and real-time operational datasets</li>
+                    <li>Transitioned maintenance strategy from time-based to condition-based</li>
+                </ul>
+                
+                <h3>Critical Equipment Covered</h3>
+                <ul>
+                    <li>Compressors</li>
+                    <li>Steam-Methane Reformers (SMR)</li>
+                    <li>Catalytic Reactors</li>
+                    <li>Purifiers</li>
+                    <li>Molecular Sieves</li>
+                </ul>
+                
+                <h3>Impact</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <strong>S$250K</strong>
+                        Annual cost savings
+                    </div>
+                    <div class="impact-item">
+                        <strong>Reduced Risk</strong>
+                        Unplanned shutdown prevention
+                    </div>
+                    <div class="impact-item">
+                        <strong>Improved Reliability</strong>
+                        Enhanced asset performance
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+                <h2>86% Alarm Reduction</h2>
+            </div>
+            <div class="modal-body">
+                <h3>Objective</h3>
+                <p>Eliminate alarm fatigue and improve operational reliability.</p>
+                
+                <h3>Approach</h3>
+                <ul>
+                    <li>Analyzed noisy real-time data streams using Northwest Analytics</li>
+                    <li>Monitored operations via PI Vision dashboards</li>
+                </ul>
+                
+                <h3>Operational Scenarios Analyzed</h3>
+                <ul>
+                    <li>Plant startup and shutdown sequences</li>
+                    <li>Tank farm monitoring</li>
+                    <li>Plant load management</li>
+                    <li>Critical control valve and instrumentation behavior</li>
+                </ul>
+                
+                <h3>Impact</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <strong>86% Reduction</strong>
+                        Process alarms in 1 year
+                    </div>
+                    <div class="impact-item">
+                        <strong>Improved Quality</strong>
+                        Operator response
+                    </div>
+                    <div class="impact-item">
+                        <strong>Reduced Risk</strong>
+                        Unexpected plant trips
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+                <h2>S$150K Operational Loss Avoidance</h2>
+            </div>
+            <div class="modal-body">
+                <h3>Objective</h3>
+                <p>Ensure timely and safe plant restart following annual shutdown.</p>
+                
+                <h3>Approach</h3>
+                <ul>
+                    <li>Interpreted real-time operational data during startup</li>
+                    <li>Identified critical interlock failures impacting restart readiness</li>
+                </ul>
+                
+                <h3>Impact</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <strong>S$150K</strong>
+                        Operational loss avoided
+                    </div>
+                    <div class="impact-item">
+                        <strong>On-Time Startup</strong>
+                        Prevented delays
+                    </div>
+                    <div class="impact-item">
+                        <strong>Risk Reduction</strong>
+                        Operational and safety
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('modal4')">&times;</span>
+                <h2>Real-Time Performance Dashboards</h2>
+            </div>
+            <div class="modal-body">
+                <h3>Scope & Tools</h3>
+                <ul>
+                    <li>Built 50+ real-time dashboards using PI Vision and Northwest Analytics</li>
+                    <li>Managed Power BI dashboards for KPI and alarm analysis</li>
+                </ul>
+                
+                <h3>Key Use Cases</h3>
+                <ul>
+                    <li>Remote plant performance monitoring</li>
+                    <li>Statistical analysis and anomaly detection</li>
+                    <li>Identification of top alarm contributors</li>
+                    <li>Tracking operational KPIs for performance improvement</li>
+                </ul>
+                
+                <h3>Impact</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <strong>Improved Visibility</strong>
+                        Plant leadership insights
+                    </div>
+                    <div class="impact-item">
+                        <strong>Faster Response</strong>
+                        Issue identification
+                    </div>
+                    <div class="impact-item">
+                        <strong>Data-Driven</strong>
+                        Performance management
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('modal5')">&times;</span>
+                <h2>BCG Digital Academy Projects</h2>
+            </div>
+            <div class="modal-body">
+                <h3>Objective</h3>
+                <p>Develop analytics and communication skills required to support commercial decision-making and strategy development.</p>
+                
+                <h3>Key Capabilities Developed</h3>
+                <ul>
+                    <li>Structured problem-solving using consulting-style frameworks</li>
+                    <li>Business communication focused on clarity, logic, and executive relevance</li>
+                    <li>Data storytelling to translate analysis into decision-ready narratives</li>
+                    <li>Data visualization aligned with management and stakeholder needs</li>
+                    <li>Critical & design thinking applied to ambiguous business problems</li>
+                    <li>AI and analytics applications for modern business contexts</li>
+                </ul>
+                
+                <h3>Technical Training & Tools</h3>
+                
+                <h4 style="color: var(--primary); margin-top: 1rem;">Power BI</h4>
+                <ul>
+                    <li>DAX measures and calculated columns for business logic and KPI modeling</li>
+                    <li>Semantic data modeling to create scalable, reusable analytical datasets</li>
+                    <li>Dashboard design focused on clarity, hierarchy, and insight flow</li>
+                    <li>Passed technical assessment with 97% (Distinction)</li>
+                </ul>
+                
+                <div style="margin: 1.5rem 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">📊 Power BI Dashboard Gallery</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div style="border: 2px solid #e2e8f0; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <img src="dashboard1.jpg" alt="Dashboard 1" style="width: 100%; height: 150px; object-fit: cover; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <div style="padding: 0.5rem; text-align: center; font-size: 0.9rem; background: var(--light);">Sales Analytics Dashboard</div>
+                        </div>
+                        <div style="border: 2px solid #e2e8f0; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <img src="dashboard2.jpg" alt="Dashboard 2" style="width: 100%; height: 150px; object-fit: cover; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <div style="padding: 0.5rem; text-align: center; font-size: 0.9rem; background: var(--light);">Profitability Driver Analysis</div>
+                        </div>
+                        <div style="border: 2px solid #e2e8f0; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <img src="dashboard3.jpg" alt="Dashboard 3" style="width: 100%; height: 150px; object-fit: cover; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <div style="padding: 0.5rem; text-align: center; font-size: 0.9rem; background: var(--light);">Regional Market Trend</div>
+                        </div>
+                        <div style="border: 2px solid #e2e8f0; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <img src="dashboard4.jpg" alt="Dashboard 4" style="width: 100%; height: 150px; object-fit: cover; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <div style="padding: 0.5rem; text-align: center; font-size: 0.9rem; background: var(--light);">Global Market Performance Analysis</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--secondary); font-style: italic;">Note: Replace dashboard1.jpg through dashboard4.jpg with your actual Power BI dashboard screenshots</p>
+                </div>
+                
+                <h4 style="color: var(--primary); margin-top: 1rem;">Python (Pandas)</h4>
+                <ul>
+                    <li>Data cleaning, transformation, and exploratory analysis</li>
+                    <li><a href="https://www.hackerrank.com/profile/irene_tlr198" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">🏆 View HackerRank Profile</a></li>
+                </ul>
+                
+                <h4 style="color: var(--primary); margin-top: 1rem;">MySQL</h4>
+                <ul>
+                    <li>Querying and structuring datasets for analytical use</li>
+                </ul>
+                
+                <h4 style="color: var(--primary); margin-top: 1rem;">Excel</h4>
+                <ul>
+                    <li>Analytical modeling, data preparation, and scenario analysis</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Request Modal -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('resumeModal')">&times;</span>
+                <h2>Request Resume</h2>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: var(--secondary);">Please fill in your details below. I'll send you my resume shortly!</p>
+                
+                <p style="background: var(--light); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <strong>Contact:</strong> <a href="mailto:irene.tlr198@gmail.com" style="color: var(--primary);">irene.tlr198@gmail.com</a>
+                </p>
+                
+                <form id="resumeForm" onsubmit="handleResumeRequest(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div>
+                        <label for="requestorName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--dark);">Name *</label>
+                        <input type="text" id="requestorName" required style="width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    
+                    <div>
+                        <label for="requestorEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--dark);">Email *</label>
+                        <input type="email" id="requestorEmail" required style="width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    
+                    <div>
+                        <label for="requestorMessage" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--dark);">Message</label>
+                        <textarea id="requestorMessage" rows="4" style="width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; resize: vertical;">I would like to request your resume.</textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-header">
+                <h2 class="animate-on-scroll">My Journey</h2>
+                <div class="tagline animate-on-scroll typing-effect-container">
+                    <div>From design to analytics to delivery,</div>
+                    <div>I build, optimize, and clarify complex systems.</div>
+                </div>
+            </div>
+            
+            <div class="journey-text animate-on-scroll">
+                <p>Hi, I'm Irene. For the last five years, I worked across industrial gases, pharmaceutical APIs, and edible oil processing, where my days were filled with technical troubleshooting, and detecting anomalies before they became failures.</p>
+                
+                <p>Along the way, I discovered something important:</p>
+                <p class="emphasis-text">
+                    <span class="highlight-gradient">I'm not just driven by how systems work, I'm driven by what the data means for the bigger picture.</span>
+                </p>
+                
+                <p>That curiosity led me to:</p>
+            </div>
+            
+            <!-- Achievement Timeline -->
+            <div class="achievements-grid">
+                <div class="achievement-box animate-on-scroll">
+                    <div class="achievement-front">
+                        <div class="achievement-number">86%</div>
+                        <div class="achievement-title">Alarm Reduction</div>
+                    </div>
+                    <div class="achievement-back">
+                        <p>Reduce process alarm through statistical process control strategies</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-box animate-on-scroll">
+                    <div class="achievement-front">
+                        <div class="achievement-number">S$250k</div>
+                        <div class="achievement-title">Annual Cost Savings</div>
+                    </div>
+                    <div class="achievement-back">
+                        <p>Unlocking operational savings through predictive analytics</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-box animate-on-scroll">
+                    <div class="achievement-front">
+                        <div class="achievement-number">20+</div>
+                        <div class="achievement-title">Predictive Models</div>
+                    </div>
+                    <div class="achievement-back">
+                        <p>Built models to forecast plant performance</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-box animate-on-scroll">
+                    <div class="achievement-front">
+                        <div class="achievement-number">S$150k</div>
+                        <div class="achievement-title">Operational Loss Avoidance</div>
+                    </div>
+                    <div class="achievement-back">
+                        <p>Prevented losses through proactive risk identification</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-box animate-on-scroll">
+                    <div class="achievement-front">
+                        <div class="achievement-number">50+</div>
+                        <div class="achievement-title">Real-Time Dashboards</div>
+                    </div>
+                    <div class="achievement-back">
+                        <p>Built dashboards to monitor plant performance</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-box animate-on-scroll">
+                    <div class="achievement-front">
+                        <div class="achievement-number">S$5M</div>
+                        <div class="achievement-title">Capital Project</div>
+                    </div>
+                    <div class="achievement-back">
+                        <p>Managed pharma project for new API product launch</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-box animate-on-scroll">
+                    <div class="achievement-front">
+                        <div class="achievement-number">300TPD</div>
+                        <div class="achievement-title">Plant Design</div>
+                    </div>
+                    <div class="achievement-back">
+                        <p>Managed fatty alcohol plant from concept to reality</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-box animate-on-scroll">
+                    <div class="achievement-front">
+                        <div class="achievement-number">200TPD</div>
+                        <div class="achievement-title">Plant Commissioning</div>
+                    </div>
+                    <div class="achievement-back">
+                        <p>Managed oil hydrogenation plant commissioning</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="journey-text animate-on-scroll">
+                <p style="font-size: 1.2rem; font-weight: 500; color: var(--dark); margin-top: 2rem;">These achievements taught me how to:</p>
+            </div>
+            
+            <!-- Skills Learned - Interactive Cards -->
+            <div class="skills-learned">
+                <div class="skill-learned-card animate-on-scroll" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="skill-learned-icon">🎯</div>
+                    <p>Spot trends early</p>
+                </div>
+                <div class="skill-learned-card animate-on-scroll" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="skill-learned-icon">📊</div>
+                    <p>Interpret signals behind volatility</p>
+                </div>
+                <div class="skill-learned-card animate-on-scroll" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="skill-learned-icon">💡</div>
+                    <p>Translate complexity into clarity</p>
+                </div>
+                <div class="skill-learned-card animate-on-scroll" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <div class="skill-learned-icon">🔗</div>
+                    <p>Connect technical events with business impact</p>
+                </div>
+            </div>
+            
+            <div class="differentiators">
+                <h3 class="animate-on-scroll">What Makes Me Different</h3>
+                <div class="differentiator-list">
+                    <div class="differentiator-item animate-on-scroll">
+                        <div class="diff-icon-section">
+                            <div class="diff-icon">🏭</div>
+                            <h4>Industry Knowledge + Analytical Rigor</h4>
+                        </div>
+                        <div class="diff-content">
+                            <p>I understand <strong>how plants actually work</strong>—the constraints, the trade-offs, the data quality issues. This operational literacy, combined with analytics training, lets me bridge technical insights and business implications.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="differentiator-item animate-on-scroll">
+                        <div class="diff-icon-section">
+                            <div class="diff-icon">✅</div>
+                            <h4>Proven Real World Impact</h4>
+                        </div>
+                        <div class="diff-content">
+                            <p>My track record <strong>isn't theoretical</strong>. I've built models that saved real money, dashboards that changed real decisions, and insights that drove real operational improvements across industrial gas industries.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="differentiator-item animate-on-scroll">
+                        <div class="diff-icon-section">
+                            <div class="diff-icon">🎯</div>
+                            <h4>Strategic Mindset</h4>
+                        </div>
+                        <div class="diff-content">
+                            <p>I'm intentionally pivoting toward roles where analytics <strong>informs market intelligence, competitive positioning, and commercial strategy</strong>—not just operational efficiency. I bring a system-level view that connects data, industry context, and strategic decision-making.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="looking-for animate-on-scroll">
+                <h3>What I'm Looking For</h3>
+                <p style="margin-bottom: 1rem;">Market analysis or business analyst roles where I can apply my unique combination of:</p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                    <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
+                        Deep operational understanding of industrial sectors
+                    </li>
+                    <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
+                        Hands-on experience turning data into business decisions
+                    </li>
+                    <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
+                        Fresh training in structured business analytics
+                    </li>
+                    <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
+                        Track record of delivering measurable impact
+                    </li>
+                </ul>
+                
+                <div class="values-grid" style="margin-top: 2rem;">
+                    <div class="value-card-new">
+                        <div class="value-icon">📊</div>
+                        <h4>Data-Driven Decisions</h4>
+                        <p>Numbers tell stories. I find the signal in the noise and translate it into action.</p>
+                    </div>
+                    <div class="value-card-new">
+                        <div class="value-icon">💼</div>
+                        <h4>Business Impact First</h4>
+                        <p>Analytics is only valuable if it influences decisions. I focus on commercial outcomes.</p>
+                    </div>
+                    <div class="value-card-new">
+                        <div class="value-icon">🏭</div>
+                        <h4>Industry Context Matters</h4>
+                        <p>Generic insights don't move needles. I bring sector-specific operational knowledge.</p>
+                    </div>
+                    <div class="value-card-new">
+                        <div class="value-icon">🚀</div>
+                        <h4>Continuous Evolution</h4>
+                        <p>From process engineer to business analyst—I adapt and upskill to create more value.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <h2>Let's Talk Strategy</h2>
+            <p>Interested in someone who combines operational expertise with business analytics? Let's discuss how my unique background can add value to your team.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:irene.tlr198@gmail.com" class="contact-link">
+                    <span>📧</span> irene.tlr198@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/ireneteo98/" target="_blank" class="contact-link">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="https://github.com/ireneteo98" target="_blank" class="contact-link">
+                    <span>💻</span> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Irene Teo. Built with passion for data analytics.</p>
+    </footer>
+
+    <script>
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+        
+        // Resume Request Form Handler
+        function handleResumeRequest(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('requestorName').value;
+            const email = document.getElementById('requestorEmail').value;
+            const message = document.getElementById('requestorMessage').value;
+            
+            const subject = 'Resume Request - ' + name;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            
+            // Open email client
+            window.location.href = `mailto:irene.tlr198@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            
+            // Show confirmation
+            alert('Thank you! Your email client will open to send the request. I will respond with my resume shortly.');
+            
+            // Close modal
+            closeModal('resumeModal');
+            
+            // Reset form
+            document.getElementById('resumeForm').reset();
+        }
+        
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll, .skill-learned-card, .value-card-new, .achievement-box, .differentiator-item');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+        
+        // Remove parallax effect
+    </script>
+</body>
+</html>
