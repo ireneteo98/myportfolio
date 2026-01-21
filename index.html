@@ -937,30 +937,10 @@
         .slide {
             min-width: 100%;
             padding: 2.5rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             border-radius: 12px;
-            color: white;
+            color: var(--dark);
             text-align: center;
-        }
-        
-        .slide-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: slideIconPop 0.6s ease-out;
-        }
-        
-        @keyframes slideIconPop {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
         }
         
         .slide h4 {
@@ -1547,13 +1527,14 @@
                             <div style="padding: 0.5rem; text-align: center; font-size: 0.9rem; background: var(--light);">Global Market Performance Analysis</div>
                         </div>
                     </div>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--secondary); font-style: italic;">Note: Replace dashboard1.jpg through dashboard4.jpg with your actual Power BI dashboard screenshots</p>
                 </div>
                 
                 <h4 style="color: var(--primary); margin-top: 1rem;">Python (Pandas)</h4>
                 <ul>
                     <li>Data cleaning, transformation, and exploratory analysis</li>
                     <li><a href="https://www.hackerrank.com/profile/irene_tlr198" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">🏆 View HackerRank Profile</a></li>
+                    <li><a href="https://github.com/ireneteo98" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">🏆 View GitHub Profile</a></li>
+
                 </ul>
                 
                 <h4 style="color: var(--primary); margin-top: 1rem;">MySQL</h4>
@@ -1583,20 +1564,21 @@
                     <strong>Contact:</strong> <a href="mailto:irene.tlr198@gmail.com" style="color: var(--primary);">irene.tlr198@gmail.com</a>
                 </p>
                 
-                <form id="resumeForm" onsubmit="handleResumeRequest(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+                <form id="resumeForm" action="https://formspree.io/f/mgoopnww" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+
                     <div>
                         <label for="requestorName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--dark);">Name *</label>
-                        <input type="text" id="requestorName" required style="width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                        <input type="text" id="requestorName" name="name" required style="width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
                     </div>
                     
                     <div>
                         <label for="requestorEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--dark);">Email *</label>
-                        <input type="email" id="requestorEmail" required style="width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                        <input type="email" id="requestorEmail" name="email" required style="width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
                     </div>
                     
                     <div>
                         <label for="requestorMessage" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--dark);">Message</label>
-                        <textarea id="requestorMessage" rows="4" style="width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; resize: vertical;">I would like to request your resume.</textarea>
+                        <textarea id="requestorMessage" name="message" rows="4" style="width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; resize: vertical;">I would like to request your resume.</textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Request</button>
@@ -1735,37 +1717,27 @@
             </div>
             
             <div class="differentiators">
-                <h3 class="animate-on-scroll">What Makes Me Different</h3>
-                <div class="differentiator-list">
-                    <div class="differentiator-item animate-on-scroll">
-                        <div class="diff-icon-section">
-                            <div class="diff-icon">🏭</div>
+                <h3>What Makes Me Different</h3>
+                <div class="slider-container">
+                    <div class="slider" id="differentiatorSlider">
+                        <div class="slide">
                             <h4>Industry Knowledge + Analytical Rigor</h4>
+                            <p style="color:#64748b">I understand how plants actually work—the constraints, the trade-offs, the data quality issues. This operational literacy, combined with analytics training, lets me bridge technical insights and business implications.</p>
                         </div>
-                        <div class="diff-content">
-                            <p>I understand <strong>how plants actually work</strong>—the constraints, the trade-offs, the data quality issues. This operational literacy, combined with analytics training, lets me bridge technical insights and business implications.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="differentiator-item animate-on-scroll">
-                        <div class="diff-icon-section">
-                            <div class="diff-icon">✅</div>
+                        <div class="slide">
                             <h4>Proven Real World Impact</h4>
+                            <p style="color:#64748b">My track record isn't theoretical. I've built models that saved real money, dashboards that changed real decisions, and insights that drove real operational improvements across industrial gas industries.</p>
                         </div>
-                        <div class="diff-content">
-                            <p>My track record <strong>isn't theoretical</strong>. I've built models that saved real money, dashboards that changed real decisions, and insights that drove real operational improvements across industrial gas industries.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="differentiator-item animate-on-scroll">
-                        <div class="diff-icon-section">
-                            <div class="diff-icon">🎯</div>
+                        <div class="slide">
                             <h4>Strategic Mindset</h4>
-                        </div>
-                        <div class="diff-content">
-                            <p>I'm intentionally pivoting toward roles where analytics <strong>informs market intelligence, competitive positioning, and commercial strategy</strong>—not just operational efficiency. I bring a system-level view that connects data, industry context, and strategic decision-making.</p>
+                            <p style="color:#64748b">I'm intentionally pivoting toward roles where analytics informs market intelligence, competitive positioning, and commercial strategy—not just operational efficiency. I bring a system-level view that connects data, industry context, and strategic decision-making.</p>
                         </div>
                     </div>
+                </div>
+                <div class="slider-nav">
+                    <span class="slider-dot active" onclick="goToSlide(0)"></span>
+                    <span class="slider-dot" onclick="goToSlide(1)"></span>
+                    <span class="slider-dot" onclick="goToSlide(2)"></span>
                 </div>
             </div>
             
@@ -1861,7 +1833,27 @@
                 document.body.style.overflow = "auto";
             }
         }
+
+        // Slider Functions
+        let currentSlide = 0;
+        const slider = document.getElementById('differentiatorSlider');
+        const dots = document.querySelectorAll('.slider-dot');
         
+        function goToSlide(index) {
+            currentSlide = index;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+        
+        // Auto-advance slider
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 3;
+            goToSlide(currentSlide);
+        }, 5000);
+
         // Resume Request Form Handler
         function handleResumeRequest(event) {
             event.preventDefault();
